@@ -11,6 +11,7 @@
  *  Contributors: 
  *     Microsoft         - Initial version
  *     Frédéric Desbiens - 2024 version.
+ *     Howard Ginsburg   - New method to clear the screen.
  */
 
 #ifndef _SCREEN_H

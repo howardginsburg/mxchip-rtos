@@ -11,6 +11,7 @@
  *  Contributors: 
  *     Microsoft         - Initial version
  *     Frédéric Desbiens - 2024 version.
+ *     Howard Ginsburg   - rename of cloud_config.h to app_config.h
  */
 
 #ifndef _WWD_NETWORKING_H

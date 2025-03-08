@@ -10,6 +10,7 @@
 #  Contributors: 
 #     Microsoft         - Initial version
 #     Frédéric Desbiens - 2024 version.
+#     Howard Ginsburg   - Added app.c to build list.
 
 set(SOURCES
     startup/system_stm32f4xx.c

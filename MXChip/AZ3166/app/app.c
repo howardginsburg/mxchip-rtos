@@ -1,3 +1,17 @@
+/* 
+ * Copyright (c) Microsoft
+ * Copyright (c) 2024 Eclipse Foundation
+ * 
+ *  This program and the accompanying materials are made available 
+ *  under the terms of the MIT license which is available at
+ *  https://opensource.org/license/mit.
+ * 
+ *  SPDX-License-Identifier: MIT
+ * 
+ *  Contributors: 
+ *     Howard Ginsburg   - Creation of separate application files from main class.
+ */
+
 #include <stdio.h>
 #include "screen.h"
 #include "sntp_client.h"

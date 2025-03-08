@@ -11,6 +11,7 @@
  *  Contributors: 
  *     Microsoft         - Initial version
  *     Frédéric Desbiens - 2024 version.
+ *     Howard Ginsburg   - Changed the font and separated out the clearing of the screen.
  */
 
 #include "screen.h"

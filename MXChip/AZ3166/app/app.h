@@ -1,3 +1,17 @@
+/* 
+ * Copyright (c) Microsoft
+ * Copyright (c) 2024 Eclipse Foundation
+ * 
+ *  This program and the accompanying materials are made available 
+ *  under the terms of the MIT license which is available at
+ *  https://opensource.org/license/mit.
+ * 
+ *  SPDX-License-Identifier: MIT
+ * 
+ *  Contributors: 
+ *     Howard Ginsburg   - Creation of separate application files from main class.
+ */
+
 #ifndef _APP_H
 #define _APP_H
    
@@ -5,7 +19,6 @@
 #include "nxd_dns.h"
 #include "tx_api.h"
 
-//UINT app_entry(NX_IP* ip_ptr, NX_PACKET_POOL* pool_ptr, NX_DNS* dns_ptr, UINT (*unix_time_callback)(ULONG* unix_time));
-
 VOID app_thread_entry(ULONG parameter);
+
 #endif
