@@ -27,5 +27,6 @@ typedef enum
 
 void screen_print(char* str, LINE_NUM line);
 void screen_printn(const char* str, unsigned int str_length, LINE_NUM line);
+void screen_clear(void);
 
 #endif // _SCREEN_H
