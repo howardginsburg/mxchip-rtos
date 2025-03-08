@@ -19,7 +19,7 @@
 #include "nx_api.h"
 #include "nxd_dns.h"
 
-#include "cloud_config.h"
+#include "app_config.h"
 
 extern NX_PACKET_POOL nx_pool[2]; // 0=TX, 1=RX.
 extern NX_IP nx_ip;

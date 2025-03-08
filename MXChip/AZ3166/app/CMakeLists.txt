@@ -17,12 +17,13 @@ set(SOURCES
     startup/tx_initialize_low_level.S
     stm32cubef4/stm32f4xx_hal_msp.c
     board_init.c
-    cloud_config.h
+    app_config.h
     console.c
     screen.c
     sntp_client.c
     main.c
     wwd_networking.c
+    app.c
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

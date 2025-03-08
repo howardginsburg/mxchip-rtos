@@ -13,8 +13,8 @@
  *     Frédéric Desbiens - 2024 version.
  */
 
-#ifndef _CLOUD_CONFIG_H
-#define _CLOUD_CONFIG_H
+#ifndef _APP_CONFIG_H
+#define _APP_CONFIG_H
 
 typedef enum
 {
@@ -27,14 +27,21 @@ typedef enum
 // ----------------------------------------------------------------------------
 // WiFi connection config
 // ----------------------------------------------------------------------------
-#define HOSTNAME      "eclipse-threadx"  //Change to unique hostname.
-#define WIFI_SSID     ""
-#define WIFI_PASSWORD "" 
-#define WIFI_MODE     WPA2_PSK_AES
+#define HOSTNAME                    "eclipse-threadx"  //Change to unique hostname.
+#define WIFI_SSID                   ""
+#define WIFI_PASSWORD               "" 
+#define WIFI_MODE                   WPA2_PSK_AES
 
 // ----------------------------------------------------------------------------
 // MQTT Config
 // ----------------------------------------------------------------------------
+#define CLIENT_ID_STRING            "mytestclient"
+#define TOPIC_NAME                  "topic"
+#define MQTT_SERVER_ADDRESS         IP_ADDRESS(192, 168, 175, 223)
+#define MQTT_SERVER_PORT            1883
+//#define MQTT_USERNAME             ""
+//#define MQTT_PASSWORD             ""
 
+#define SEND_INTERVAL               5 // seconds
 
-#endif // _CLOUD_CONFIG_H
+#endif

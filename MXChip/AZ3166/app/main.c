@@ -11,62 +11,41 @@
  *  Contributors: 
  *     Microsoft         - Initial version
  *     Frédéric Desbiens - 2024 version.
+ *     Howard Ginsburg   - Moved application logic to App.c.  This file should not need to be changed
+ *                       - anymore.  It is only here to create the ThreadX application thread.
  */
 
 #include <stdio.h>
-
 #include "tx_api.h"
-
 #include "board_init.h"
 #include "cmsis_utils.h"
-#include "screen.h"
-#include "sntp_client.h"
-#include "wwd_networking.h"
+#include "app.h"
 
-#include "cloud_config.h"
+#define APP_THREAD_STACK_SIZE 4096
+#define APP_THREAD_PRIORITY   4
 
-#define ECLIPSETX_THREAD_STACK_SIZE 4096
-#define ECLIPSETX_THREAD_PRIORITY   4
-
-TX_THREAD eclipsetx_thread;
-TX_THREAD eclipsetx_thread2;
-ULONG eclipsetx_thread_stack[ECLIPSETX_THREAD_STACK_SIZE / sizeof(ULONG)];
-ULONG eclipsetx_thread_stack2[ECLIPSETX_THREAD_STACK_SIZE / sizeof(ULONG)];
-
-
-static void eclipsetx_thread_entry(ULONG parameter)
-{
-    UINT status;
-
-    printf("Starting Eclipse ThreadX thread\r\n\r\n");
-
-    // Initialize the network
-    if ((status = wwd_network_init(WIFI_SSID, WIFI_PASSWORD, WIFI_MODE)))
-    {
-        printf("ERROR: Failed to initialize the network (0x%08x)\r\n", status);
-    }
-
-}
+TX_THREAD app_thread;
+ULONG app_thread_stack[APP_THREAD_STACK_SIZE / sizeof(ULONG)];
 
 void tx_application_define(void* first_unused_memory)
 {
     systick_interval_set(TX_TIMER_TICKS_PER_SECOND);
 
     // Create ThreadX thread
-    UINT status = tx_thread_create(&eclipsetx_thread,
-        "Eclipse ThreadX Thread",
-        eclipsetx_thread_entry,
+    UINT status = tx_thread_create(&app_thread,
+        "Application ThreadX Thread",
+        app_thread_entry,
         0,
-        eclipsetx_thread_stack,
-        ECLIPSETX_THREAD_STACK_SIZE,
-        ECLIPSETX_THREAD_PRIORITY,
-        ECLIPSETX_THREAD_PRIORITY,
+        app_thread_stack,
+        APP_THREAD_STACK_SIZE,
+        APP_THREAD_PRIORITY,
+        APP_THREAD_PRIORITY,
         TX_NO_TIME_SLICE,
         TX_AUTO_START);
 
     if (status != TX_SUCCESS)
     {
-        printf("ERROR: Eclipse ThreadX thread creation failed\r\n");
+        printf("ERROR: Application ThreadX thread creation failed\r\n");
     }
 }
 
